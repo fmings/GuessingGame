@@ -2,7 +2,10 @@
 Console.WriteLine("Guess a number between 1 and 100");
 
 int attempts = 4;
-int secretNumber = 42;
+Random random = new Random();
+
+int secretNumber;
+secretNumber = random.Next(0, 101);
 for (int i = 0; i < attempts; i++)
 {
     string guessedNumberInput = Console.ReadLine();
@@ -18,11 +21,11 @@ for (int i = 0; i < attempts; i++)
         {
             if (i < attempts - 1)
             {
-                Console.WriteLine("Tooooo bad...you guessed wrong! Guess again:");
+                Console.WriteLine($"Tooooo bad...you guessed wrong! You have {attempts - (i + 1)} guesses remaining. Guess again:");
             }
             else
             {
-                Console.WriteLine("Tooooo bad...you guessed wrong! No more attempts remaining.");
+                Console.WriteLine($"Tooooo bad...you guessed wrong! No more attempts remaining. The secret number is {secretNumber}.");
             };
 
         }
