@@ -1,20 +1,36 @@
 ﻿Console.WriteLine("Welcome to the Guessing Game!");
 Console.WriteLine("Guess a number between 1 and 100");
-string guessedNumberInput = Console.ReadLine();
-if (int.TryParse(guessedNumberInput, out int guessedNumber) && guessedNumber > 0 && guessedNumber <= 100)
+
+int attempts = 4;
+int secretNumber = 42;
+for (int i = 0; i < attempts; i++)
 {
-    Console.WriteLine($"Let's see if you guessed correctly...");
-    if (guessedNumber == 42)
+    string guessedNumberInput = Console.ReadLine();
+    if (int.TryParse(guessedNumberInput, out int guessedNumber) && guessedNumber > 0 && guessedNumber <= 100)
     {
-        Console.WriteLine("Congratulations!! You guessed the secret number!");
+        Console.WriteLine($"Let's see if you guessed correctly...");
+        if (guessedNumber == secretNumber)
+        {
+            Console.WriteLine("Congratulations!! You guessed the secret number!");
+            break;
+        }
+        else
+        {
+            if (i < attempts - 1)
+            {
+                Console.WriteLine("Tooooo bad...you guessed wrong! Guess again:");
+            }
+            else
+            {
+                Console.WriteLine("Tooooo bad...you guessed wrong! No more attempts remaining.");
+            };
+
+        }
     }
     else
     {
-        Console.WriteLine("Tooooo bad...you guessed wrong!");
+        Console.WriteLine("Invalid guess. Please guess a number between 1 and 100.");
+        i--;
     }
 }
-else
-{
-    Console.WriteLine("Invalid guess. Please guess a number between 1 and 100.");
-}
-int secretNumber = 42;
+
