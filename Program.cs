@@ -5,10 +5,11 @@ void Main()
     Console.WriteLine(@"Please select a level:
                     1. Easy
                     2. Medium
-                    3. Hard");
+                    3. Hard
+                    4. Cheater");
     string levelInput = Console.ReadLine();
 
-    if (int.TryParse(levelInput, out int selectedLevel) && selectedLevel > 0 && selectedLevel < 4)
+    if (int.TryParse(levelInput, out int selectedLevel) && selectedLevel > 0 && selectedLevel < 5)
     {
         int attempts = GetAttempts(selectedLevel);
         if (attempts > 0)
@@ -22,7 +23,7 @@ void Main()
     }
     else
     {
-        Console.WriteLine("That is not an existing level. Please enter a level between 1-3.");
+        Console.WriteLine("That is not an existing level. Please enter a level between 1-4.");
 
     }
 }
@@ -42,6 +43,10 @@ int GetAttempts(int selectedLevel)
         else if (selectedLevel == 3)
         {
             attempts = 4;
+        }
+        else if (selectedLevel == 4)
+        {
+        attempts = 5000;
         }
     return attempts;
 }
