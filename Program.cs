@@ -21,7 +21,7 @@ for (int i = 0; i < attempts; i++)
         {
             if (i < attempts - 1)
             {
-                Console.WriteLine($"Tooooo bad...you guessed wrong! You have {attempts - (i + 1)} guesses remaining. Guess again:");
+                Console.WriteLine($"Tooooo bad...you guessed {(guessedNumber > secretNumber ? "too high!" : "too low!")}! You have {attempts - (i + 1)} guesses remaining. Try again:");
             }
             else
             {
